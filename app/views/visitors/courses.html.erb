@@ -3,9 +3,7 @@
 </div>
 <div class="right-col">
 	<h1>Available courses</h1>
-	<%= link_to 'Free', '#' %>
-	<%= link_to 'Paid', '#' %>
-	<%= link_to 'All', '#' %>
+	<%= render 'layouts/body_navigation' %>
 	
 	
 	<% @courses.each do |course| %>

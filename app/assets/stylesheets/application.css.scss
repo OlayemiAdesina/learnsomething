@@ -226,6 +226,7 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
   -webkit-border-radius: 5pt;
   -moz-border-radius: 5pt;
   min-height: 400px;
+  margin-top: 10%;
 }
 .hot-courses th{
   font-family: Century Gothic, sans-serif;
@@ -238,7 +239,6 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
 .hot-courses td{
   padding: 3% 6% 3% 6%;
   font-size: 1.2em;
-  text-align: justify;
 }
 .hot-courses .hot-tutor{
   float:right;
@@ -247,7 +247,7 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
 }
 // style for all available courses
 .course{
-  width:auto;
+  width:95%;
   padding:2%;
   background-color: #f0f0ed;
   //border: 3px solid white;
@@ -256,7 +256,7 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
   -moz-border-radius: 10pt;
   -moz-box-shadow: 0px 0px 3px #AAA;
   -webkit-box-shadow: 0px 0px 3px #AAA;
-  box-shadow: 0px 0px 3px #AAA;
+  box-shadow: 0px 0px 3px #AAA;  
 }
 .course .avatar{
   width:35%;
@@ -273,7 +273,6 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
 .course .avatar h4{
   padding-top:2px;
   color: #D65F39;
-  text-align:center;
   font-family: Century Gothic, sans-serif;
 }
 .course .avatar .approved-icon{
@@ -304,4 +303,30 @@ a:hover{color:#D65F39; text-decoration:underline; outline:none;}
   font-size: 0.8em;
   color: #D65F39;
   margin-top:5%;
+}
+.body-nav{
+ width:100%;
+ border-bottom: 1px solid #99cccc;
+ padding-bottom: 1.5%;
+ margin: 5% 0 5% 0;
+}
+// #B7E8E8; #F58634;
+.body-nav a{
+  background-color: #B7E8E8;  
+  width:15%;
+  border-bottom: 1px solid #B7E8E8;
+  border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  padding:1.5% 4% 1.5% 4%;
+  margin-right:1%;
+  text-align: center;
+  color: #003333; 
+  font-size: 1.2em;
+}
+.body-nav a:hover{
+  text-decoration:none;
+  outline:none;
+  background-color: #99CCCC;
+  border-bottom: 1px solid #99CCCC;
 }

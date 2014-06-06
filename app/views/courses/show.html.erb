@@ -40,12 +40,11 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @course.cost %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @course.price %>
+  <% if @course.price == nil || @course.cost == false || @course.price == 0.0 %>
+        	<td> Free </td>
+        <% else %>
+        	<td><%= @course.currency %><%= @course.price %></td>
+        <% end %>
 </p>
 
 <p>
@@ -55,8 +54,12 @@
 
 <p>
   <strong>Banner:</strong>
-  <%= image_tag @course.avatar.small %>
+  <div style="float: left"><%= image_tag @course.avatar.medium %></div>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<%= link_to(edit_course_path(@course), class: "btn") do %>	Edit  <% end %>
+
+ &nbsp;&nbsp;
+<%= link_to(all_courses_path(@course), class: "btn") do %>	Back  <% end %>
