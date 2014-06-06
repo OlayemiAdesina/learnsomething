@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  tutor: MyString
+  days: false
+  date: 2014-06-06
+  time: 2014-06-06 12:40:26
+  venue: MyString
+  cost: false
+  currency: MyString
+  price: 9.99
+  tag: MyString
+  avatar: MyString
+  validate_course: false
+
+two:
+  title: MyString
+  description: MyText
+  tutor: MyString
+  days: false
+  date: 2014-06-06
+  time: 2014-06-06 12:40:26
+  venue: MyString
+  cost: false
+  currency: MyString
+  price: 9.99
+  tag: MyString
+  avatar: MyString
+  validate_course: false

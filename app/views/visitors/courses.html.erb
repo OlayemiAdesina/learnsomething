@@ -1,0 +1,53 @@
+<div class="left-col">
+	<%= render 'layouts/hot_courses' %>
+</div>
+<div class="right-col">
+	<h1>Available courses</h1>
+	<%= link_to 'Free', '#' %>
+	<%= link_to 'Paid', '#' %>
+	<%= link_to 'All', '#' %>
+	
+	
+	<% @courses.each do |course| %>
+		<div class="course">
+		      <div class="avatar">
+		      		<%= image_tag course.avatar.large %>
+		      		
+		      		<%# if course.validate_course == true %>
+		      			<div class= "approved-icon"><%= image_tag("approved-icon.png") %></div>
+		      		<%# end %> 
+		      		
+		      		<h4><%= course.tutor %>, <%= course.location %></h4>		      		 		
+		      </div>
+		      <div class="details">
+		      			<div class="course-date">      	
+			      			<%= course.start_date %>
+					        <% if course.days == false && course.end_date != nil %>
+					        	to <%= course.end_date %>
+					        <% end %>
+						</div>
+		      		<div class="title">
+		      			<h2 style="font-weight: bold">
+		      				<%= course.title %>	      		
+				      		<% if course.price == nil || course.cost == false || course.price == 0.0 %>
+					        	(Free)
+					        <% else %>
+					        	(<%= course.currency %><%= course.price %>)
+					        <% end %>
+				        </h2>		    
+					    
+					</div>					
+					<hr />
+				    <div class="description" >
+				    	<%= course.description %>
+				    	<%= link_to('#', class: "btn") do %>
+    						View Course
+						<% end %>
+				    </div>				    
+				    <div class="tag">Tag: <%= course.tag %></div>
+		      </div>		            	 
+		</div>
+	<% end %>
+</div>
+
+

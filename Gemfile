@@ -13,7 +13,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pundit'
-gem 'simple_form'
+#gem 'simple_form'
 gem 'thin'
 group :development do
   gem 'better_errors'
@@ -22,3 +22,19 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+gem 'pg'
+gem 'rails_12factor', group: :production
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+
+gem 'jquery-ui-rails'
+
+# for aws cloud storage
+gem 'fog'
+# photo resizing
+gem 'mini_magick'
+# file upload solution
+gem 'carrierwave'

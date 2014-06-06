@@ -3,7 +3,16 @@
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
 // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
+// -------------------------------------- For Image views
+// large size
+//<%= image_tag(@user.avatar.large)%>
+
+//medium size
+//<%= image_tag(@user.avatar.medium)%>
+
+//small size
+//<%= image_tag @user.avatar.small %>
+//----------------------------- End
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
@@ -15,3 +24,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+//= require bootstrap/modal 
+

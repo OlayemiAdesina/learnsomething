@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @course.tutor %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @course.start_date %>
+        <% if @course.days == false || @course.end_date != nil %>
+        	to <%= @course.end_date %>
+        <% end %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @course.time %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @course.location %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @course.venue %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @course.cost %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course.price %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @course.tag %>
+</p>
+
+<p>
+  <strong>Banner:</strong>
+  <%= image_tag @course.avatar.small %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

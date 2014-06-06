@@ -1,0 +1,27 @@
+<div class="hot-courses">
+	<table>
+		<thead>
+			<tr>
+				<th>
+					<div class ="pencil-icon"><%= image_tag("pencil-icon.png") %></div>
+					<div class="th-hot">Hot Courses</div>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td></td></tr>
+			<% @courses.each do |course| %>
+			<tr><td>
+					<%# if course.validate_course == true %>
+							<%= course.title %>
+							<div class="hot-tutor">
+								- <%= course.tutor %>, <%= course.location %>
+							</div>
+					<%# end %>				
+				</td>
+			</tr>
+			<% end %>
+			<tr><td></td></tr>
+		</tbody>
+	</table>
+</div>

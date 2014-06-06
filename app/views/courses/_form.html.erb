@@ -1,0 +1,103 @@
+<%= simple_form_for @course, :html => {:multipart => true, :class => 'well form-horizontal'},
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    radio_buttons: :horizontal_radio_and_checkboxes,    
+    boolean: :horizontal_boolean
+  } do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :tutor %> 
+       
+    <%= f.input :days,
+    	  label: 'Training would hold for:',
+          :collection => [[true, '1 day'], [false, 'Two days or more']], 
+          :label_method => :last, 
+          :value_method => :first,          
+          :as => :radio_buttons 
+    %> 
+    <%= f.input :start_date, label: "Start Date", :as => :string, :input_html => {:class => 'datepicker col-span-3'}  %>      
+	<div id="course-date">                 
+    	<%= f.input :end_date, :id => 'course-date', :as => :string, :input_html => {:class => 'datepicker col-span-3'}  %> 
+    </div>
+    
+    <div class="float-not">
+    	<%= f.input :time %>    
+    </div>     
+    <%= f.input :location, :hint => "Enter the City where the training will take place, e.g. Lagos, Benin e.t.c" %>
+    <%= f.input :venue %>
+    <%= f.input :cost, 
+          :collection => [[false, 'Free'], [true, 'Paid']], 
+          :label_method => :last, 
+          :value_method => :first,
+          :as => :radio_buttons
+    %>
+	<div id="course_p">
+		<%= f.input :currency, :as => :select, id: 'course_p'  %>
+	   	<%= f.input :price, id: 'course_p'  %>  
+	</div>
+    <%= f.input :tag %>
+    <div class="">
+    	<%= f.label "Upload a banner image for the training"%>
+    	<%= f.file_field :avatar %>
+    </div>
+    <br />
+  
+  <%= f.button :submit, 'Create Course', :class => "right" %>
+  
+  <%= f.submit "Clear", :type => "reset", :class => "authform button" %>
+    
+<% end %>
+
+
+<script>
+	//bind price to to paid cost
+    	$(document).ready(function(){
+		    $("#course_p").hide();	
+		    $("input:radio[name='course[cost]']").change(function(){
+		            if(this.value == 'true' && this.checked){
+		              $("#course_p").show();
+		            }else{
+		              $("#course_p").hide();
+		            }
+		    });		
+		});
+		//check free as default on page load
+		$(function() {
+    		var $radios = $("input:radio[name='course[cost]']");
+    		if($radios.is(':checked') === false) {
+        		$radios.filter('[value=false]').prop('checked', true);
+    		}
+		});
+		//bind date to the number of days training will hold
+		$(document).ready(function(){
+		    $("#course-date").hide();
+		    $("#course-date input").val("");	
+		    $("input:radio[name='course[days]']").change(function(){
+		            if(this.value == 'false' && this.checked){
+		              $("#course-date").show();
+		            }else{
+		              $("#course-date").hide();
+		              $("#course-date input").val("");
+		            }
+		    });		
+		});
+		//check 1-day as default on page load
+		$(function() {
+    		var $radios = $("input:radio[name='course[days]']");
+    		if($radios.is(':checked') === true) {
+        		$radios.filter('[value=true]').prop('checked', true);
+    		}
+		});		
+		// datepicker
+      $('.datepicker').datepicker({
+          format: "yyyy-mm-dd",
+          todayHighlight: true,
+          todayBtn: 'linked',
+          autoclose: true
+      });
+      // end date cannot be less than start date
+	if ($.datepicker.parseDate('dd-mm-yyyy',start_date) > $.datepicker.parseDate('dd-mm-yyyy', end_date)) {
+		alert(start_date + 'is later than ' + end_date + 'please change the date');
+	}
+</script>

@@ -2,19 +2,32 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Learnsomething" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "LearnSomethi.ng" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Learnsomething" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>    
   </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-  </body>
+    <% if @home %>
+	  <body>
+	    <header>    
+	      <%= render 'layouts/navigation' %>
+	      <%= render 'layouts/banner' %>
+	    </header>
+		<main role="main" class="main-home">
+			<%#= render 'layouts/messages' %>
+		    <%= yield %>
+		</main>    
+	  </body>
+  <% else %>
+  	<body style="background-color: white" >
+	    <header>    
+	      <%= render 'layouts/navigation' %>
+	    </header>  
+	    <main role="main" >
+		  <%#= render 'layouts/messages' %>
+		  <%= yield %>
+		</main>
+	</body>
+  <% end %>
 </html>
